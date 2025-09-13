@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opportunity - GenAI Hackathon Prototype</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f7fb;
+      color: #333;
+    }
+    header {
+      background: #2d87f0;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #2d87f0;
+      margin-bottom: 15px;
+    }
+    .feature-box {
+      background: white;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    textarea, input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #2d87f0;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #226bc3;
+    }
+    .output {
+      margin-top: 10px;
+      padding: 10px;
+      background: #eef3fb;
+      border-radius: 5px;
+      min-height: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Opportunity - GenAI Hackathon Prototype</h1>
+  <p>Team: Bug Slayer | Leader: Naresh Reddy Paluri</p>
+</header>
+
+<section>
+  <h2>Overview</h2>
+  <p><b>Problem Statement:</b> Bridging the Digital and Physical Divide with Generative AI.</p>
+  <p><b>USP:</b> Context-aware, personalized, and real-time insights for smarter decision-making.</p>
+</section>
+
+<section>
+  <h2>Interactive Features</h2>
+
+  <!-- Feature 1: Text Summarizer -->
+  <div class="feature-box">
+    <h3>1. AI Text Summarizer</h3>
+    <textarea id="summaryInput" rows="4" placeholder="Paste text here..."></textarea>
+    <button onclick="summarize()">Summarize</button>
+    <div class="output" id="summaryOutput"></div>
+  </div>
+
+  <!-- Feature 2: Data Insights Generator -->
+  <div class="feature-box">
+    <h3>2. Data Insights Generator</h3>
+    <textarea id="insightInput" rows="4" placeholder="Enter some raw data or notes..."></textarea>
+    <button onclick="generateInsights()">Generate Insights</button>
+    <div class="output" id="insightOutput"></div>
+  </div>
+
+  <!-- Feature 3: Q&A Chatbot -->
+  <div class="feature-box">
+    <h3>3. Simple Q&A Chatbot</h3>
+    <input type="text" id="chatInput" placeholder="Ask me about the project..." />
+    <button onclick="chat()">Ask</button>
+    <div class="output" id="chatOutput"></div>
+  </div>
+</section>
+
+<script>
+  // Feature 1: Summarizer (mock logic)
+  function summarize() {
+    let text = document.getElementById("summaryInput").value;
+    if (text.length < 20) {
+      document.getElementById("summaryOutput").innerText = "Please enter more text for summarization.";
+      return;
+    }
+    let summary = text.split(" ").slice(0, 20).join(" ") + "... (summary)";
+    document.getElementById("summaryOutput").innerText = summary;
+  }
+
+  // Feature 2: Insights Generator (mock AI output)
+  function generateInsights() {
+    let data = document.getElementById("insightInput").value;
+    if (data.trim() === "") {
+      document.getElementById("insightOutput").innerText = "Please enter some data.";
+      return;
+    }
+    let insights = [
+      "✔ Data indicates time savings of 30%.",
+      "✔ Personalized outputs improve decision-making.",
+      "✔ Complexity reduced with structured AI insights.",
+      "✔ Real-time adaptability ensures relevance."
+    ];
+    document.getElementById("insightOutput").innerText = insights[Math.floor(Math.random() * insights.length)];
+  }
+
+  // Feature 3: Chatbot (rule-based)
+  function chat() {
+    let question = document.getElementById("chatInput").value.toLowerCase();
+    let answer = "I’m not sure, but this project bridges digital and physical worlds with GenAI.";
+    if (question.includes("problem")) answer = "Our problem statement: Bridging the Digital and Physical Divide with GenAI.";
+    if (question.includes("team")) answer = "We are the Bug Slayer team, led by Naresh Reddy Paluri.";
+    if (question.includes("usp")) answer = "USP: Context-aware, personalized, real-time insights.";
+    if (question.includes("feature")) answer = "Features include summarization, data insights, and personalization.";
+    document.getElementById("chatOutput").innerText = answer;
+  }
+</script>
+
+</body>
+</html>
